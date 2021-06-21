@@ -1,0 +1,26 @@
+{
+  "name": "BC-Group8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HM2021-BC/BC-Group8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HM2021-BC/BC-Group8/issues"
+  },
+  "homepage": "https://github.com/HM2021-BC/BC-Group8#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.4.1"
+  }
+}
