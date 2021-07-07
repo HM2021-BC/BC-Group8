@@ -12,7 +12,7 @@ const citiesMapped = cities.map((item, index) => { return {
   value: item.city
 }});
 
-console.log(cities[0], citiesMapped[0]);
+// console.log(cities[0], citiesMapped[0]);
 
 class CampaignNew extends Component {
   state = {
