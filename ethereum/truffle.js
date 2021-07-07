@@ -45,7 +45,6 @@ module.exports = {
       gas: 5000000,
     },
     private_poa: { 
-
       provider: function () {
         return new HDWalletProvider(
             {
@@ -56,7 +55,7 @@ module.exports = {
         )
     },
       network_id: "*",
-      gas: 6000000,
+      gas: 999999999999,
       gasPrice: gasPrice
     }
   }

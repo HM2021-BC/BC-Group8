@@ -12,6 +12,14 @@ const citiesMapped = cities.map((item, index) => { return {
   value: item.city
 }});
 
+
+const getAccounts = async () => {
+  var accounts = await web3.eth.getAccounts();
+  console.log(accounts, 'here')
+}
+
+getAccounts()
+
 // console.log(cities[0], citiesMapped[0]);
 
 class CampaignNew extends Component {
@@ -31,19 +39,41 @@ class CampaignNew extends Component {
 
     try {
       const accounts = await web3.eth.getAccounts();
-      await factory.createOrder(
-          new Date().valueOf() / 20,
+      console.log('TRY ODER CREATE')
+      console.log(accounts);
+      /* await factory.methods
+        .createCampaign(this.state.minimumContribution, "Test creating campaign")
+        .send({
+          from: accounts[0]
+        }); */
+        console.log(parseInt(new Date().valueOf() / 20),
+        this.state.name,
+        this.state.city,
+        this.state.quantity,
+        this.state.receiver)
+       /* const createdOrder = await factory.methods.createOrder(
+          parseInt(new Date().valueOf() / 20),
           this.state.name,
           this.state.city,
           this.state.quantity,
           this.state.receiver
-        )
-
+        ).call({from: accounts[0]}) */
+        
+        const createdOrder = await factory.methods.createOrder(
+          parseInt(new Date().valueOf() / 20),
+          this.state.name,
+          this.state.city,
+          this.state.quantity,
+          this.state.receiver
+        ).send({from: accounts[0]})
+        console.log(createdOrder);
       Router.pushRoute('/');
     } catch (err) {
+      console.log('CATH ODER CREATE')
       this.setState({ errorMessage: err.message });
     }
 
+    console.log('ODER CREATE WORKED?')
     this.setState({ loading: false });
   };
 

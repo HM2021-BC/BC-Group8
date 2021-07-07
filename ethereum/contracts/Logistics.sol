@@ -47,7 +47,12 @@ contract Logistics {
     
     
     ////////// FUNCTIONS //////////
-    function sendShipment(address _order_id, string memory _current_location, string memory _delivery_location,  address _reciever) public returns(address) {
+    function sendShipment(
+            address _order_id, 
+            string memory _current_location, 
+            string memory _delivery_location,  
+            address _reciever
+        ) public returns(address) {
         address shipment_id = address(uint160(uint(sha256(abi.encodePacked(msg.sender, block.timestamp)))));
         
         shippmentMapping[shipment_id].order_id = _order_id;

@@ -5,12 +5,12 @@ import Layout from '../components/Layout';
 import { Link } from '../routes';
 
 class CampaignIndex extends Component {
-  static async getInitialProps() {
+   /*tatic async getInitialProps() {
     const campaigns = await factory.methods.getDeployedCampaigns().call();
     
-    return { campaigns };
-  }
-
+    return { campaigns }; 
+  }*/
+/*
   renderCampaigns() {
     const items = this.props.campaigns.map(address => {
       return {
@@ -25,7 +25,7 @@ class CampaignIndex extends Component {
     });
 
     return <Card.Group items={items} />;
-  }
+  } */
 
   render() {
     return (
@@ -43,8 +43,6 @@ class CampaignIndex extends Component {
               />
             </a>
           </Link>
-
-          {this.renderCampaigns()}
         </div>
       </Layout>
     );
