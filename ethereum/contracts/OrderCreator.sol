@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0
-
 pragma solidity ^0.5.0;
 
 contract OrderCreator {
@@ -43,7 +42,13 @@ contract OrderCreator {
     ////////// FUNCTIONS //////////
     
     // creates a new order
-    function createOrder(uint _item_id, string memory _item_name, string memory _order_location, uint _quantity, address _reciever) public returns(address) {
+    function createOrder(
+            uint _item_id, 
+            string memory _item_name, 
+            string memory _order_location, 
+            uint _quantity, 
+            address _reciever
+        ) public returns(address) {
         address uuid = address(uint160(uint(sha256(abi.encodePacked(msg.sender, block.timestamp)))));
         
         orderMapping[uuid].item_id = _item_id;
