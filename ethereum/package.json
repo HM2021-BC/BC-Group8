@@ -1,5 +1,5 @@
 {
-  "name": "crownfundsample",
+  "name": "Block-Tracker",
   "version": "1.0.0",
   "description": "CrownFund Ethereum base sample",
   "main": "truffle.js",

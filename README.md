@@ -1,9 +1,11 @@
-# crowdfundsample
-*Source Code Attribution is given to Stephen Grider https://github.com/StephenGrider/EthereumCasts/tree/master/kickstart
-Modified by Morpheus Labs for the purpose of this 7-week course
+# Block-Tracker
+*
+This dApp serves for tracking and monitoring of created orders. The status and the location can be checked from customers evrytime.  
+
+The user should use "MetaMask" Wallet to login and create an order. 
 
 # How to run
-1. Change to CrowdFund_EduMaster directory
+1. Change to BC-Group8 directory
 2. Run node server.js
 3. Switch to CDE Services tab
 4. Go to dev-machine/node and open webpage

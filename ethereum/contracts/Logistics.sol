@@ -6,6 +6,8 @@ pragma solidity ^0.5.0;
 contract Logistics {
     
     address Owner;
+
+    address[] shipments;
     
     ////////// DEFENTION //////////
     
@@ -69,7 +71,7 @@ contract Logistics {
     }
     
     // updates the locations of the shipment with the given id
-    function updateLocation(address shippment_id, string memory _location) public onlyOwner returns(bool) {
+    function updateCurrentLocation(address shippment_id, string memory _location) public onlyOwner returns(bool) {
         shippmentMapping[shippment_id].current_location = _location;
         return true;
     } 
@@ -88,6 +90,14 @@ contract Logistics {
     // returns the current location of the shipment with the given id
     function getCurrentLocation(address shippment_id) public view returns(string memory) {
         return shippmentMapping[shippment_id].current_location;
+    }
+
+    function getReciever(address shippment_id) public view returns(address) {
+        return shippmentMapping[shippment_id].reciever;
+    }
+
+    function getCustomer(address shippment_id) public view returns(address) {
+        return shippmentMapping[shippment_id].customer;
     }
     
     

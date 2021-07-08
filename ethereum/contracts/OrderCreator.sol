@@ -4,6 +4,7 @@ pragma solidity ^0.5.0;
 contract OrderCreator {
     
     address Owner;
+    address[] public orders;
     
     ////////// DEFENTION //////////
     
@@ -60,16 +61,37 @@ contract OrderCreator {
         orderMapping[uuid].order_date = block.timestamp;
         orderMapping[uuid].reciever = _reciever;
         
+        orders.push(uuid);
         return uuid;
     }
     
+     // returns a array of all order ids 
+    function getOrderIDs() public view returns(address[] memory) {
+        return orders;
+    } 
+    
     // returns the status of the order with the given uuid
-    function getOrderStatus(address uuid) public view returns(string memory) {
-        return orderMapping[uuid].order_status;
+    function getOrderStatus(address order_id) public view returns(string memory) {
+        return orderMapping[order_id].order_status;
     } 
     
     // returns the location of the order with the given uuid
-    function getOrderLocation(address uuid) public view returns(string memory) {
-        return orderMapping[uuid].order_status;
+    function getOrderLocation(address order_id) public view returns(string memory) {
+        return orderMapping[order_id].order_location;
     } 
+
+    function getOrderDate(address order_id) public view returns(uint) {
+        return orderMapping[order_id].order_date;
+    }
+    
+    function getRecieverAddress(address order_id) public view returns(address) {
+        return orderMapping[order_id].reciever;
+    }
+
+    function getNumberOfOrders() public view returns(uint) {
+        return orders.length;
+    }
+    
+
+
 }  
