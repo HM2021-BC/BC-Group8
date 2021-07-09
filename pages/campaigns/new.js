@@ -23,11 +23,17 @@ getAccounts()
 // console.log(cities[0], citiesMapped[0]);
 
 class CampaignNew extends Component {
-  state = {
+  /*state = {
     name: '',
     city: '',
-    quantity: '',
-    receiver: '',
+    product_id: '',
+    errorMessage: '',
+    loading: false
+  };*/
+  state = {
+    name: '',
+    location: '',
+    product_id: '',
     errorMessage: '',
     loading: false
   };
@@ -48,9 +54,7 @@ class CampaignNew extends Component {
         }); */
         console.log(parseInt(new Date().valueOf() / 20),
         this.state.name,
-        this.state.city,
-        this.state.quantity,
-        this.state.receiver)
+        this.state.location)
        /* const createdOrder = await factory.methods.createOrder(
           parseInt(new Date().valueOf() / 20),
           this.state.name,
@@ -59,14 +63,21 @@ class CampaignNew extends Component {
           this.state.receiver
         ).call({from: accounts[0]}) */
         
-        const createdOrder = await factory.methods.createOrder(
+        /*const createdOrder = await factory.methods.createOrder(
           parseInt(new Date().valueOf() / 20),
           this.state.name,
           this.state.city,
           this.state.quantity,
           this.state.receiver
+        ).send({from: accounts[0]})*/
+
+        const createdProduct = await factory.methods.addProduct(
+          parseInt(new Date().valueOf() / 20),
+          this.state.name,
+          this.state.location,
         ).send({from: accounts[0]})
-        console.log(createdOrder);
+
+        console.log('created product');
       Router.pushRoute('/');
     } catch (err) {
       console.log('CATH ODER CREATE')
@@ -102,7 +113,7 @@ class CampaignNew extends Component {
                 console.log(this.state, data.value)}}/>
           </Form.Field>
           <Form.Field>
-            <label>Quantity (integer)</label>
+            {/*<label>Quantity (integer)</label>
             <Input
               // label="wei"
               // labelPosition="right"
@@ -110,7 +121,7 @@ class CampaignNew extends Component {
               placeholder='Quantity'
               onChange={event =>
                 this.setState({ quantity: parseInt(event.target.value) })}
-            />
+              />*/}
           </Form.Field>
           <Form.Field>
             <label>Receiver</label>
@@ -126,11 +137,11 @@ class CampaignNew extends Component {
           <br/>
           <strong>Name: </strong>{ this.state.name }
           <br/>
-          <strong>City: </strong>{ this.state.city }
+          <strong>Location: </strong>{ this.state.location }
           <br/>
-          <strong>Quantity: </strong>{ this.state.quantity }
+          {/*<strong>Quantity: </strong>{ this.state.quantity }
           <br/>
-          <strong>Receiver: </strong>{ this.state.receiver }
+          <strong>Receiver: </strong>{ this.state.receiver }*/}
           <br/><br/>
           <Message error header="Oops!" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>

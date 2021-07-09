@@ -1,5 +1,5 @@
-var Reciever = artifacts.require("./Reciever.sol");
+var Migrations = artifacts.require("./Migrations.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Reciever);
+  deployer.deploy(Migrations);
 };
